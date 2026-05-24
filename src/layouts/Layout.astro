@@ -41,7 +41,7 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
 
-    <style>
+    <style is:global>
       :root {
         /* Colors */
         --ink:         #181818;
