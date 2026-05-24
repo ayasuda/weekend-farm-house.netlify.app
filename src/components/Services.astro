@@ -11,6 +11,14 @@
       週末だけ来て、気軽に土に触れるための仕組みです。
     </p>
 
+    <div class="service-photo">
+      <img
+        src="/service.png"
+        alt="農業指導・管理サービスのイメージ"
+        class="service-photo-img"
+      />
+    </div>
+
     <div class="services-table">
       <div class="service-row">
         <div class="service-head">
@@ -90,6 +98,24 @@
     color: var(--ink-soft);
     max-width: 620px;
     margin-bottom: 2.5rem;
+  }
+
+  .service-photo {
+    margin-bottom: 2.5rem;
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+
+  .service-photo-img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  @media (max-width: 600px) {
+    .service-photo-img { height: 220px; }
   }
 
   .services-table {
