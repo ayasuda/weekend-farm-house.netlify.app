@@ -3,8 +3,11 @@
 
 <div class="concept-bar">
   <span class="concept-badge">Concept Project</span>
-  <span class="concept-text">
+  <span class="concept-text concept-text--full">
     このページは実在する分譲地の販売広告ではありません。構想段階のコンセプトサイトです。
+  </span>
+  <span class="concept-text concept-text--short">
+    販売広告ではありません。構想段階のコンセプトサイトです。
   </span>
 </div>
 
@@ -36,7 +39,10 @@
     line-height: 1.4;
   }
 
+  .concept-text--short { display: none; }
+
   @media (max-width: 600px) {
-    .concept-text { display: none; }
+    .concept-text--full  { display: none; }
+    .concept-text--short { display: inline; }
   }
 </style>
