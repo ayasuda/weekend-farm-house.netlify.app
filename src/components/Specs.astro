@@ -3,29 +3,29 @@
 
 <section id="specs" class="specs">
   <div class="container">
-    <p class="section-label">Specs</p>
+    <span class="section-label">Site Plan & Floor Plan</span>
     <h2 class="section-title">区画・建物イメージ</h2>
 
-    <div class="specs-grid">
-      <!-- Plot specs -->
-      <div class="specs-block">
-        <h3 class="specs-block-title">区画スペック（構想）</h3>
-        <dl class="spec-list">
+    <div class="specs-cols">
+      <!-- Plot specs table -->
+      <div>
+        <p class="specs-block-label">区画スペック（構想）</p>
+        <dl class="spec-table">
           <div class="spec-row">
             <dt>総区画数</dt>
             <dd>12〜20区画（想定）</dd>
           </div>
           <div class="spec-row">
-            <dt>1区画の広さ</dt>
+            <dt>1区画面積</dt>
             <dd>約200㎡</dd>
           </div>
           <div class="spec-row">
             <dt>建築条件</dt>
-            <dd>なし（購入者が自由に設計・建築可能）</dd>
+            <dd>なし — 購入者が自由に設計・建築可能</dd>
           </div>
           <div class="spec-row">
             <dt>家庭菜園</dt>
-            <dd>各区画に隣接したスタイルで提供予定</dd>
+            <dd>各区画に隣接した裏庭スタイルで提供予定</dd>
           </div>
           <div class="spec-row">
             <dt>駐車スペース</dt>
@@ -38,193 +38,324 @@
         </dl>
       </div>
 
-      <!-- Building plan example -->
-      <div class="specs-block">
-        <h3 class="specs-block-title">建築プラン例（平屋モデル）</h3>
-        <p class="specs-note">
-          ※ 建築条件なしのため、以下はあくまで参考例です。
-          ご自身の設計で自由に建てていただける想定です。
-        </p>
-        <dl class="spec-list">
+      <!-- Building spec table -->
+      <div>
+        <p class="specs-block-label">建築プラン例（参考・平屋モデル）</p>
+        <p class="specs-note">建築条件なし。以下はあくまで参考プランです。</p>
+        <dl class="spec-table">
           <div class="spec-row">
             <dt>延床面積</dt>
             <dd>約80〜100㎡（平屋）</dd>
           </div>
           <div class="spec-row">
             <dt>間取り</dt>
-            <dd>LDK + 主寝室 + 子ども部屋/多目的室 + 収納</dd>
+            <dd>LDK / 主寝室 / 子ども部屋・多目的室 / 収納</dd>
           </div>
           <div class="spec-row">
             <dt>ウッドデッキ</dt>
-            <dd>LDKに接続、家族がくつろげる屋外スペース</dd>
+            <dd>LDKに接続する屋外スペース</dd>
           </div>
           <div class="spec-row">
-            <dt>バーベキュースペース</dt>
-            <dd>庭の一角に設置（共用BBQ場は設けない）</dd>
+            <dt>BBQスペース</dt>
+            <dd>庭の一角（共用BBQ場は設けない）</dd>
           </div>
           <div class="spec-row">
-            <dt>裏庭型家庭菜園</dt>
+            <dt>裏庭型菜園</dt>
             <dd>隣接する菜園区画で農業体験が可能</dd>
           </div>
         </dl>
       </div>
     </div>
 
-    <!-- Floor plan illustration -->
-    <div class="floor-plan">
-      <h3 class="floor-plan-title">平屋モデル・間取りイメージ</h3>
-      <div class="floor-plan-visual">
-        <svg viewBox="0 0 560 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="平屋間取りのイメージ図">
-          <!-- Outer wall -->
-          <rect x="20" y="20" width="520" height="310" rx="4" fill="#f5ede0" stroke="#8b7355" stroke-width="3"/>
+    <!-- Site plan (blueprint style) -->
+    <div class="drawings-row">
+      <div class="drawing-block">
+        <p class="drawing-label">配置計画図（コンセプト）</p>
+        <div class="drawing-frame">
+          <svg viewBox="0 0 440 340" fill="none" xmlns="http://www.w3.org/2000/svg"
+               role="img" aria-label="区画配置図のコンセプト">
+            <!-- Grid background -->
+            <rect width="440" height="340" fill="#f9f7f3"/>
+            <defs>
+              <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e0ddd8" stroke-width="0.5"/>
+              </pattern>
+            </defs>
+            <rect width="440" height="340" fill="url(#grid)"/>
 
-          <!-- LDK -->
-          <rect x="20" y="20" width="230" height="200" fill="#e8f5e4" stroke="#8b7355" stroke-width="1.5"/>
-          <text x="135" y="120" text-anchor="middle" font-size="14" fill="#4a6741" font-family="sans-serif" font-weight="bold">LDK</text>
-          <text x="135" y="140" text-anchor="middle" font-size="11" fill="#6b6b6b" font-family="sans-serif">約20〜24畳</text>
+            <!-- Road (horizontal) -->
+            <rect x="0" y="148" width="440" height="28" fill="#e8e5e0"/>
+            <line x1="0" y1="162" x2="440" y2="162" stroke="#c8c4be" stroke-width="1" stroke-dasharray="12,6"/>
+            <text x="6" y="159" font-size="6" fill="#aaa" font-family="monospace" letter-spacing="1">ROAD</text>
 
-          <!-- Master bedroom -->
-          <rect x="250" y="20" width="170" height="130" fill="#fdf0e0" stroke="#8b7355" stroke-width="1.5"/>
-          <text x="335" y="80" text-anchor="middle" font-size="12" fill="#8b6e4e" font-family="sans-serif" font-weight="bold">主寝室</text>
-          <text x="335" y="98" text-anchor="middle" font-size="10" fill="#6b6b6b" font-family="sans-serif">約8〜10畳</text>
+            <!-- Road (vertical) -->
+            <rect x="192" y="0" width="24" height="148" fill="#e8e5e0"/>
+            <rect x="192" y="176" width="24" height="164" fill="#e8e5e0"/>
+            <line x1="204" y1="0" x2="204" y2="148" stroke="#c8c4be" stroke-width="1" stroke-dasharray="12,6"/>
+            <line x1="204" y1="176" x2="204" y2="340" stroke="#c8c4be" stroke-width="1" stroke-dasharray="12,6"/>
 
-          <!-- Kids room -->
-          <rect x="420" y="20" width="120" height="130" fill="#e0f0fa" stroke="#8b7355" stroke-width="1.5"/>
-          <text x="480" y="80" text-anchor="middle" font-size="11" fill="#4a6479" font-family="sans-serif" font-weight="bold">子ども部屋</text>
-          <text x="480" y="98" text-anchor="middle" font-size="10" fill="#6b6b6b" font-family="sans-serif">約6〜8畳</text>
+            <!-- Plots (top row, left side) -->
+            <rect x="10" y="10" width="78" height="130" fill="white" stroke="#4a4a4a" stroke-width="1.2"/>
+            <text x="49" y="62" text-anchor="middle" font-size="7" fill="#666" font-family="monospace">No.01</text>
+            <text x="49" y="73" text-anchor="middle" font-size="6" fill="#999" font-family="monospace">200㎡</text>
+            <!-- Garden strip -->
+            <rect x="10" y="118" width="78" height="22" fill="#e8ede9" stroke="#4a4a4a" stroke-width="0.5"/>
+            <text x="49" y="132" text-anchor="middle" font-size="6" fill="#3d5e47" font-family="monospace">菜園</text>
 
-          <!-- Storage -->
-          <rect x="250" y="150" width="290" height="70" fill="#f0ebe3" stroke="#8b7355" stroke-width="1.5"/>
-          <text x="395" y="190" text-anchor="middle" font-size="12" fill="#6b5f52" font-family="sans-serif" font-weight="bold">収納・廊下</text>
+            <rect x="96" y="10" width="88" height="130" fill="white" stroke="#4a4a4a" stroke-width="1.2"/>
+            <text x="140" y="62" text-anchor="middle" font-size="7" fill="#666" font-family="monospace">No.02</text>
+            <text x="140" y="73" text-anchor="middle" font-size="6" fill="#999" font-family="monospace">200㎡</text>
+            <rect x="96" y="118" width="88" height="22" fill="#e8ede9" stroke="#4a4a4a" stroke-width="0.5"/>
+            <text x="140" y="132" text-anchor="middle" font-size="6" fill="#3d5e47" font-family="monospace">菜園</text>
 
-          <!-- Bathroom/utility -->
-          <rect x="250" y="220" width="140" height="110" fill="#e8e0f5" stroke="#8b7355" stroke-width="1.5"/>
-          <text x="320" y="272" text-anchor="middle" font-size="11" fill="#6b5a7a" font-family="sans-serif" font-weight="bold">水まわり</text>
-          <text x="320" y="290" text-anchor="middle" font-size="10" fill="#6b6b6b" font-family="sans-serif">浴室・洗面・トイレ</text>
+            <!-- Plots (top row, right side) -->
+            <rect x="224" y="10" width="96" height="130" fill="white" stroke="#4a4a4a" stroke-width="1.2"/>
+            <text x="272" y="62" text-anchor="middle" font-size="7" fill="#666" font-family="monospace">No.03</text>
+            <text x="272" y="73" text-anchor="middle" font-size="6" fill="#999" font-family="monospace">200㎡</text>
+            <rect x="224" y="118" width="96" height="22" fill="#e8ede9" stroke="#4a4a4a" stroke-width="0.5"/>
+            <text x="272" y="132" text-anchor="middle" font-size="6" fill="#3d5e47" font-family="monospace">菜園</text>
 
-          <!-- Deck -->
-          <rect x="20" y="220" width="230" height="110" fill="#d4e8c0" stroke="#6a8a50" stroke-width="1.5" stroke-dasharray="6,3"/>
-          <text x="135" y="270" text-anchor="middle" font-size="13" fill="#4a6741" font-family="sans-serif" font-weight="bold">ウッドデッキ</text>
-          <text x="135" y="290" text-anchor="middle" font-size="10" fill="#6b6b6b" font-family="sans-serif">BBQスペース含む</text>
+            <rect x="328" y="10" width="102" height="130" fill="white" stroke="#4a4a4a" stroke-width="1.2"/>
+            <text x="379" y="62" text-anchor="middle" font-size="7" fill="#666" font-family="monospace">No.04</text>
+            <text x="379" y="73" text-anchor="middle" font-size="6" fill="#999" font-family="monospace">200㎡</text>
+            <rect x="328" y="118" width="102" height="22" fill="#e8ede9" stroke="#4a4a4a" stroke-width="0.5"/>
+            <text x="379" y="132" text-anchor="middle" font-size="6" fill="#3d5e47" font-family="monospace">菜園</text>
 
-          <!-- Garden label -->
-          <rect x="390" y="220" width="150" height="110" fill="#c8dca0" stroke="#6a8a50" stroke-width="1.5" stroke-dasharray="6,3"/>
-          <text x="465" y="268" text-anchor="middle" font-size="12" fill="#354d2f" font-family="sans-serif" font-weight="bold">庭・菜園</text>
-          <text x="465" y="286" text-anchor="middle" font-size="10" fill="#6b6b6b" font-family="sans-serif">農業体験エリア</text>
+            <!-- Plots (bottom row, left side) -->
+            <rect x="10" y="176" width="78" height="130" fill="white" stroke="#4a4a4a" stroke-width="1.2"/>
+            <text x="49" y="228" text-anchor="middle" font-size="7" fill="#666" font-family="monospace">No.05</text>
+            <text x="49" y="239" text-anchor="middle" font-size="6" fill="#999" font-family="monospace">200㎡</text>
+            <rect x="10" y="284" width="78" height="22" fill="#e8ede9" stroke="#4a4a4a" stroke-width="0.5"/>
+            <text x="49" y="298" text-anchor="middle" font-size="6" fill="#3d5e47" font-family="monospace">菜園</text>
 
-          <!-- Compass -->
-          <text x="540" y="348" text-anchor="middle" font-size="10" fill="#aaa" font-family="sans-serif">N↑</text>
-        </svg>
+            <rect x="96" y="176" width="88" height="130" fill="white" stroke="#4a4a4a" stroke-width="1.2"/>
+            <text x="140" y="228" text-anchor="middle" font-size="7" fill="#666" font-family="monospace">No.06</text>
+            <text x="140" y="239" text-anchor="middle" font-size="6" fill="#999" font-family="monospace">200㎡</text>
+            <rect x="96" y="284" width="88" height="22" fill="#e8ede9" stroke="#4a4a4a" stroke-width="0.5"/>
+            <text x="140" y="298" text-anchor="middle" font-size="6" fill="#3d5e47" font-family="monospace">菜園</text>
+
+            <!-- Bottom row, right side -->
+            <rect x="224" y="176" width="96" height="130" fill="white" stroke="#4a4a4a" stroke-width="1.2"/>
+            <text x="272" y="228" text-anchor="middle" font-size="7" fill="#666" font-family="monospace">No.07</text>
+            <text x="272" y="239" text-anchor="middle" font-size="6" fill="#999" font-family="monospace">200㎡</text>
+            <rect x="224" y="284" width="96" height="22" fill="#e8ede9" stroke="#4a4a4a" stroke-width="0.5"/>
+            <text x="272" y="298" text-anchor="middle" font-size="6" fill="#3d5e47" font-family="monospace">菜園</text>
+
+            <!-- Management building -->
+            <rect x="328" y="176" width="102" height="130" fill="#f2ede5" stroke="#7c5c38" stroke-width="1.5"/>
+            <text x="379" y="232" text-anchor="middle" font-size="7" fill="#7c5c38" font-family="monospace">管理棟</text>
+            <text x="379" y="244" text-anchor="middle" font-size="6" fill="#7c5c38" font-family="monospace">駐車場含む</text>
+
+            <!-- North arrow -->
+            <line x1="416" y1="22" x2="416" y2="10" stroke="#666" stroke-width="1.2"/>
+            <polygon points="416,10 413,18 419,18" fill="#666"/>
+            <text x="416" y="30" text-anchor="middle" font-size="6" fill="#666" font-family="monospace">N</text>
+
+            <!-- Scale bar -->
+            <line x1="10" y1="334" x2="60" y2="334" stroke="#888" stroke-width="1"/>
+            <line x1="10" y1="330" x2="10" y2="338" stroke="#888" stroke-width="1"/>
+            <line x1="60" y1="330" x2="60" y2="338" stroke="#888" stroke-width="1"/>
+            <text x="35" y="332" text-anchor="middle" font-size="5.5" fill="#888" font-family="monospace">0 — 20m（概念）</text>
+
+            <!-- Legend -->
+            <rect x="280" y="310" width="10" height="8" fill="white" stroke="#4a4a4a" stroke-width="0.8"/>
+            <text x="294" y="318" font-size="5.5" fill="#888" font-family="monospace">住宅区画</text>
+            <rect x="340" y="310" width="10" height="8" fill="#e8ede9" stroke="#3d5e47" stroke-width="0.5"/>
+            <text x="354" y="318" font-size="5.5" fill="#888" font-family="monospace">菜園エリア</text>
+          </svg>
+        </div>
+        <p class="drawing-note">※ 概念図です。実際の区画割り・道路配置は未定です。</p>
       </div>
-      <p class="floor-plan-note">
-        ※ この間取り図はイメージです。実際の設計は購入者の自由です。建築条件はありません。
-      </p>
+
+      <!-- Floor plan (blueprint style) -->
+      <div class="drawing-block">
+        <p class="drawing-label">参考平面図（4人家族向け平屋モデル）</p>
+        <div class="drawing-frame">
+          <svg viewBox="0 0 440 340" fill="none" xmlns="http://www.w3.org/2000/svg"
+               role="img" aria-label="平屋モデルの参考平面図">
+            <rect width="440" height="340" fill="#f9f7f3"/>
+            <defs>
+              <pattern id="grid2" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e0ddd8" stroke-width="0.5"/>
+              </pattern>
+            </defs>
+            <rect width="440" height="340" fill="url(#grid2)"/>
+
+            <!-- Outer wall (thick) -->
+            <rect x="30" y="30" width="260" height="220" fill="white" stroke="#181818" stroke-width="5"/>
+
+            <!-- Interior walls -->
+            <!-- LDK (left big area) -->
+            <line x1="170" y1="30" x2="170" y2="170" stroke="#181818" stroke-width="2.5"/>
+            <!-- Horizontal divide -->
+            <line x1="30" y1="170" x2="290" y2="170" stroke="#181818" stroke-width="2.5"/>
+            <!-- Top right divide -->
+            <line x1="220" y1="30" x2="220" y2="170" stroke="#181818" stroke-width="2.5"/>
+
+            <!-- Room labels -->
+            <text x="100" y="96" text-anchor="middle" font-size="9" fill="#181818" font-family="monospace" font-weight="bold">LDK</text>
+            <text x="100" y="110" text-anchor="middle" font-size="6.5" fill="#888" font-family="monospace">約22畳</text>
+
+            <text x="195" y="85" text-anchor="middle" font-size="8" fill="#181818" font-family="monospace">主寝室</text>
+            <text x="195" y="97" text-anchor="middle" font-size="6.5" fill="#888" font-family="monospace">8〜10畳</text>
+
+            <text x="255" y="85" text-anchor="middle" font-size="8" fill="#181818" font-family="monospace">子ども</text>
+            <text x="255" y="97" text-anchor="middle" font-size="8" fill="#181818" font-family="monospace">部屋</text>
+            <text x="255" y="110" text-anchor="middle" font-size="6.5" fill="#888" font-family="monospace">6〜8畳</text>
+
+            <!-- Bathroom / utility (bottom right) -->
+            <line x1="200" y1="170" x2="200" y2="250" stroke="#181818" stroke-width="2.5"/>
+            <text x="100" y="207" text-anchor="middle" font-size="8" fill="#181818" font-family="monospace">廊下・収納</text>
+            <text x="245" y="207" text-anchor="middle" font-size="8" fill="#181818" font-family="monospace">水まわり</text>
+            <text x="245" y="220" text-anchor="middle" font-size="6.5" fill="#888" font-family="monospace">浴室・洗面</text>
+
+            <!-- Door marks (arcs) -->
+            <path d="M 170 200 Q 170 170 200 170" stroke="#181818" stroke-width="0.8" fill="none" stroke-dasharray="3,2"/>
+            <path d="M 245 30 Q 245 50 220 50" stroke="#181818" stroke-width="0.8" fill="none" stroke-dasharray="3,2"/>
+
+            <!-- Deck (dashed, outside) -->
+            <rect x="30" y="250" width="260" height="60" fill="#f0ede8" stroke="#4a4a4a" stroke-width="1" stroke-dasharray="6,3"/>
+            <text x="160" y="284" text-anchor="middle" font-size="9" fill="#4a4a4a" font-family="monospace">ウッドデッキ / BBQスペース</text>
+
+            <!-- Garden / farm (right side, dashed) -->
+            <rect x="300" y="30" width="120" height="280" fill="#e8ede9" stroke="#3d5e47" stroke-width="1" stroke-dasharray="6,3"/>
+            <!-- Garden rows -->
+            <line x1="310" y1="80" x2="410" y2="80" stroke="#3d5e47" stroke-width="0.8"/>
+            <line x1="310" y1="110" x2="410" y2="110" stroke="#3d5e47" stroke-width="0.8"/>
+            <line x1="310" y1="140" x2="410" y2="140" stroke="#3d5e47" stroke-width="0.8"/>
+            <line x1="310" y1="170" x2="410" y2="170" stroke="#3d5e47" stroke-width="0.8"/>
+            <line x1="310" y1="200" x2="410" y2="200" stroke="#3d5e47" stroke-width="0.8"/>
+            <line x1="310" y1="230" x2="410" y2="230" stroke="#3d5e47" stroke-width="0.8"/>
+            <text x="360" y="60" text-anchor="middle" font-size="8" fill="#3d5e47" font-family="monospace">裏庭型</text>
+            <text x="360" y="72" text-anchor="middle" font-size="8" fill="#3d5e47" font-family="monospace">家庭菜園</text>
+
+            <!-- North arrow -->
+            <line x1="420" y1="22" x2="420" y2="10" stroke="#666" stroke-width="1.2"/>
+            <polygon points="420,10 417,18 423,18" fill="#666"/>
+            <text x="420" y="30" text-anchor="middle" font-size="6" fill="#666" font-family="monospace">N</text>
+
+            <!-- Scale -->
+            <line x1="30" y1="326" x2="80" y2="326" stroke="#888" stroke-width="1"/>
+            <line x1="30" y1="322" x2="30" y2="330" stroke="#888" stroke-width="1"/>
+            <line x1="80" y1="322" x2="80" y2="330" stroke="#888" stroke-width="1"/>
+            <text x="55" y="324" text-anchor="middle" font-size="5.5" fill="#888" font-family="monospace">0 — 5m（概念）</text>
+          </svg>
+        </div>
+        <p class="drawing-note">※ 参考プランです。建築条件なし。実際の設計は購入者の自由です。</p>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
   .specs {
-    background-color: var(--color-surface);
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
+    background: var(--bg-white);
+    border-bottom: 1px solid var(--line);
   }
 
-  .specs-grid {
+  .specs-cols {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
     margin-bottom: 3rem;
   }
 
-  .specs-block-title {
-    font-size: 1.05rem;
+  .specs-block-label {
+    font-size: 0.75rem;
     font-weight: 600;
-    color: var(--color-primary-dark);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    font-family: var(--mono);
     margin-bottom: 1.25rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--line);
   }
 
   .specs-note {
-    font-size: 0.8rem;
-    color: var(--color-text-muted);
+    font-size: 0.78rem;
+    color: var(--ink-muted);
     margin-bottom: 1rem;
-    line-height: 1.7;
-    background: var(--color-notice);
-    padding: 0.6rem 0.75rem;
-    border-radius: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--bg);
+    border-left: 2px solid var(--line);
   }
 
-  .spec-list {
+  .spec-table {
     display: flex;
     flex-direction: column;
-    gap: 0;
   }
 
   .spec-row {
     display: grid;
-    grid-template-columns: 120px 1fr;
+    grid-template-columns: 110px 1fr;
     gap: 1rem;
-    padding: 0.75rem 0;
-    border-bottom: 1px solid var(--color-border);
+    padding: 0.65rem 0;
+    border-bottom: 1px solid var(--line-soft);
   }
 
-  .spec-row:last-child {
-    border-bottom: none;
-  }
+  .spec-row:last-child { border-bottom: none; }
 
   dt {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 600;
-    color: var(--color-text-muted);
+    color: var(--ink-muted);
+    font-family: var(--mono);
     padding-top: 0.1rem;
   }
 
   dd {
-    font-size: 0.9rem;
-    color: var(--color-text);
-    line-height: 1.7;
+    font-size: 0.875rem;
+    color: var(--ink);
+    line-height: 1.65;
   }
 
-  .floor-plan {
-    margin-top: 1rem;
+  /* Drawings */
+  .drawings-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
   }
 
-  .floor-plan-title {
-    font-size: 1.05rem;
+  .drawing-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .drawing-label {
+    font-size: 0.72rem;
     font-weight: 600;
-    color: var(--color-primary-dark);
-    margin-bottom: 1.25rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    font-family: var(--mono);
   }
 
-  .floor-plan-visual {
-    background: var(--color-notice);
-    border: 1px solid var(--color-border);
-    border-radius: 0.75rem;
-    padding: 1.5rem;
-    margin-bottom: 0.75rem;
+  .drawing-frame {
+    border: 1px solid var(--line);
+    background: #f9f7f3;
   }
 
-  .floor-plan-visual svg {
+  .drawing-frame svg {
     width: 100%;
     height: auto;
-    max-height: 400px;
+    display: block;
   }
 
-  .floor-plan-note {
-    font-size: 0.8rem;
-    color: var(--color-text-muted);
+  .drawing-note {
+    font-size: 0.75rem;
+    color: var(--ink-muted);
   }
 
-  @media (max-width: 700px) {
-    .specs-grid {
+  @media (max-width: 860px) {
+    .specs-cols, .drawings-row {
       grid-template-columns: 1fr;
       gap: 2rem;
     }
+  }
 
-    .spec-row {
-      grid-template-columns: 100px 1fr;
-    }
+  @media (max-width: 600px) {
+    .spec-row { grid-template-columns: 90px 1fr; }
   }
 </style>

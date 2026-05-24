@@ -3,26 +3,22 @@
 
 <section id="contact" class="contact">
   <div class="container">
-    <p class="section-label">Contact</p>
+    <span class="section-label">Interest & Feedback</span>
     <h2 class="section-title">興味・感想フォーム</h2>
 
-    <div class="contact-grid">
+    <div class="contact-layout">
       <div class="contact-intro">
-        <div class="section-body">
-          <p>
-            このサイトは「共感・反応・意見」を集めるためのものです。
-          </p>
-          <p>
-            「住んでみたい」という感想でも、「こんな土地があるよ」という情報でも、
-            「一緒に考えたい」という方でも、ぜひ気軽にメッセージをください。
-          </p>
-          <p>
-            購入申込ではありません。フォームを送っても、何も契約・拘束されません。
-          </p>
-        </div>
+        <p>
+          このサイトは「共感・反応・意見」を集めるためのものです。
+          「住んでみたい」という感想でも、「こんな土地があるよ」という情報でも、
+          「一緒に考えたい」という方でも、気軽にメッセージをください。
+        </p>
+        <p>
+          購入申込ではありません。送信しても何も契約・拘束されません。
+        </p>
 
-        <div class="contact-types">
-          <h3>こんな方からのメッセージを歓迎しています</h3>
+        <div class="who-list">
+          <p class="who-label">こんな方からのメッセージを歓迎しています</p>
           <ul>
             <li>週末型セカンドハウスに興味がある方</li>
             <li>「住んでみたい / 買ってみたい」と思った方</li>
@@ -34,58 +30,47 @@
         </div>
       </div>
 
-      <div class="form-wrapper">
+      <div class="form-area">
         <form
           name="contact"
           method="POST"
           data-netlify="true"
           netlify-honeypot="bot-field"
-          class="contact-form"
           action="/thanks"
+          class="contact-form"
         >
-          <!-- Netlify hidden field -->
           <input type="hidden" name="form-name" value="contact" />
-          <p class="hidden" aria-hidden="true">
-            <label>
-              <input name="bot-field" />
-            </label>
+          <p class="sr-only" aria-hidden="true">
+            <label>Do not fill: <input name="bot-field" /></label>
           </p>
 
-          <div class="form-group">
-            <label for="name" class="form-label">
-              お名前 <span class="required">必須</span>
-            </label>
+          <div class="field">
+            <label for="name">お名前 <span class="req">必須</span></label>
             <input
               type="text"
               id="name"
               name="name"
-              class="form-input"
               placeholder="山田 太郎"
               required
               autocomplete="name"
             />
           </div>
 
-          <div class="form-group">
-            <label for="email" class="form-label">
-              メールアドレス <span class="required">必須</span>
-            </label>
+          <div class="field">
+            <label for="email">メールアドレス <span class="req">必須</span></label>
             <input
               type="email"
               id="email"
               name="email"
-              class="form-input"
               placeholder="taro@example.com"
               required
               autocomplete="email"
             />
           </div>
 
-          <div class="form-group">
-            <label for="type" class="form-label">
-              お問い合わせ種別 <span class="required">必須</span>
-            </label>
-            <select id="type" name="type" class="form-select" required>
+          <div class="field">
+            <label for="type">お問い合わせ種別 <span class="req">必須</span></label>
+            <select id="type" name="type" required>
               <option value="" disabled selected>選択してください</option>
               <option value="interest">この企画に興味がある</option>
               <option value="want-to-live">住んでみたい / 買ってみたい</option>
@@ -96,26 +81,22 @@
             </select>
           </div>
 
-          <div class="form-group">
-            <label for="message" class="form-label">
-              メッセージ <span class="optional">任意</span>
-            </label>
+          <div class="field">
+            <label for="message">メッセージ <span class="opt">任意</span></label>
             <textarea
               id="message"
               name="message"
-              class="form-textarea"
               rows="5"
               placeholder="感想・意見・質問などをご自由にどうぞ。"
             ></textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary form-submit">
+          <button type="submit" class="btn btn-primary submit-btn">
             送信する
           </button>
 
-          <p class="form-privacy">
-            送信内容はNetlify Formsで受け取ります。個人情報は企画検討の目的にのみ使用し、
-            第三者への提供は行いません。
+          <p class="form-note">
+            送信内容はNetlify Formsで受け取ります。個人情報は企画検討の目的にのみ使用し、第三者への提供は行いません。
           </p>
         </form>
       </div>
@@ -125,137 +106,170 @@
 
 <style>
   .contact {
-    background-color: var(--color-bg);
+    background: var(--bg-white);
+    border-bottom: 1px solid var(--line);
   }
 
-  .contact-grid {
+  .contact-layout {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1fr 1.1fr;
     gap: 4rem;
     align-items: start;
   }
 
-  .contact-types {
+  .contact-intro {
+    font-size: 0.92rem;
+    line-height: 1.9;
+    color: var(--ink-soft);
+  }
+
+  .contact-intro p + p {
+    margin-top: 0.9rem;
+  }
+
+  .who-list {
     margin-top: 2rem;
+    padding: 1.5rem;
+    border: 1px solid var(--line);
+    background: var(--bg);
   }
 
-  .contact-types h3 {
-    font-size: 0.9rem;
+  .who-label {
+    font-size: 0.72rem;
     font-weight: 600;
-    color: var(--color-text);
-    margin-bottom: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    font-family: var(--mono);
+    margin-bottom: 0.9rem;
   }
 
-  .contact-types ul {
+  .who-list ul {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.45rem;
   }
 
-  .contact-types li {
-    font-size: 0.875rem;
-    color: var(--color-text-muted);
-    padding-left: 1.25rem;
+  .who-list li {
+    font-size: 0.845rem;
+    color: var(--ink-soft);
+    padding-left: 1rem;
     position: relative;
     line-height: 1.6;
   }
 
-  .contact-types li::before {
-    content: '◦';
+  .who-list li::before {
+    content: '';
     position: absolute;
     left: 0;
-    color: var(--color-primary);
+    top: 0.65em;
+    width: 0.4rem;
+    height: 1px;
+    background: var(--ink-faint);
   }
 
-  .form-wrapper {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 1rem;
-    padding: 2rem;
-  }
-
+  /* Form */
   .contact-form {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+    border: 1px solid var(--line);
+    padding: 2rem;
+    background: var(--bg);
   }
 
-  .hidden {
-    display: none;
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
   }
 
-  .form-group {
+  .field {
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
   }
 
-  .form-label {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--color-text);
+  .field label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--ink);
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
+    font-family: var(--mono);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
 
-  .required {
-    font-size: 0.7rem;
-    background: var(--color-secondary);
-    color: white;
-    padding: 0.1rem 0.4rem;
-    border-radius: 0.2rem;
+  .req {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--earth);
+    border: 1px solid var(--earth);
+    padding: 0.1rem 0.35rem;
+    text-transform: uppercase;
+    font-family: var(--mono);
   }
 
-  .optional {
-    font-size: 0.7rem;
-    color: var(--color-text-muted);
+  .opt {
+    font-size: 0.6rem;
+    color: var(--ink-faint);
+    font-family: var(--mono);
+    letter-spacing: 0.08em;
   }
 
-  .form-input,
-  .form-select,
-  .form-textarea {
+  .field input,
+  .field select,
+  .field textarea {
     width: 100%;
-    padding: 0.65rem 0.9rem;
-    font-size: 0.95rem;
+    padding: 0.65rem 0.8rem;
+    font-size: 0.9rem;
     font-family: inherit;
-    border: 1px solid var(--color-border);
-    border-radius: 0.5rem;
-    background: var(--color-bg);
-    color: var(--color-text);
-    transition: border-color 0.15s, box-shadow 0.15s;
+    border: 1px solid var(--line);
+    background: var(--bg-white);
+    color: var(--ink);
     outline: none;
+    transition: border-color 0.15s;
+    border-radius: 0;
+    -webkit-appearance: none;
+    appearance: none;
   }
 
-  .form-input:focus,
-  .form-select:focus,
-  .form-textarea:focus {
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(74, 103, 65, 0.12);
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    border-color: var(--green);
   }
 
-  .form-textarea {
+  .field textarea {
     resize: vertical;
-    min-height: 120px;
+    min-height: 110px;
+    line-height: 1.7;
   }
 
-  .form-submit {
+  .submit-btn {
     width: 100%;
     justify-content: center;
-    font-size: 1rem;
-    padding: 0.875rem;
+    padding: 0.85rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    border-radius: 0;
   }
 
-  .form-privacy {
-    font-size: 0.75rem;
-    color: var(--color-text-muted);
+  .form-note {
+    font-size: 0.72rem;
+    color: var(--ink-muted);
     line-height: 1.6;
     text-align: center;
   }
 
-  @media (max-width: 700px) {
-    .contact-grid {
+  @media (max-width: 768px) {
+    .contact-layout {
       grid-template-columns: 1fr;
       gap: 2rem;
     }

@@ -3,37 +3,35 @@
 
 <section id="about" class="about">
   <div class="container">
-    <p class="section-label">About this project</p>
-    <h2 class="section-title">この企画について</h2>
-
-    <div class="about-grid">
-      <div class="about-body section-body">
-        <p>
-          このサイトは、実在する不動産物件の販売広告ではありません。
-        </p>
-        <p>
-          都内に暮らしながら、週末だけ土に触れる。そんな暮らし方に、どれくらいの共感があるかを確かめるために作った、コンセプトサイトです。
-        </p>
-        <p>
-          「あったらいいな」と思う暮らしの企画を言語化し、同じように感じる人を探しています。
-        </p>
-        <p>
-          同時に、この企画を本当に実現できる不動産会社・デベロッパー・地域事業者・自治体関係者に向けた、ゆるい企画提案でもあります。
-        </p>
-        <p class="about-cta-text">
-          要するに、<strong>「誰かこれ、やってくれません？」</strong>というサイトです。
-        </p>
+    <div class="about-layout">
+      <div class="about-head">
+        <span class="section-label">About this project</span>
+        <h2 class="section-title">この企画について</h2>
       </div>
 
-      <div class="about-notice">
-        <div class="notice-card">
-          <div class="notice-icon">⚠</div>
-          <h3>構想段階のコンセプトサイトです</h3>
-          <ul>
+      <div class="about-body">
+        <div class="about-text">
+          <p>
+            都内在住の家族を対象にした、週末に住むためのセカンドハウス構想です。
+            ちょっと大きめの家庭菜園から小規模の農業経験をしつつ、
+            人生に彩りを与える生活を提供したい。
+          </p>
+          <p>
+            これは需要・反応・共感を観測するための公開企画書です。
+            同時に、この企画を本当に実現できる不動産会社・デベロッパー・
+            地域事業者・自治体関係者への、ゆるい企画提案でもあります。
+          </p>
+          <p class="about-punchline">
+            要するに、<strong>「誰かこれ、やってくれません？」</strong>というサイトです。
+          </p>
+        </div>
+
+        <div class="about-disclaimer">
+          <p class="disclaimer-head">構想段階のコンセプトサイトです</p>
+          <ul class="disclaimer-list">
             <li>実在する分譲地・販売物件ではありません</li>
-            <li>価格はすべて仮説です</li>
+            <li>価格・区画数・仕様はすべて仮説です</li>
             <li>法規制・建築可否は未確認です</li>
-            <li>区画数・仕様・サービス内容は構想段階です</li>
             <li>購入申込の受付は行っていません</li>
           </ul>
         </div>
@@ -44,73 +42,95 @@
 
 <style>
   .about {
-    background-color: var(--color-surface);
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
+    background: var(--bg-white);
+    border-bottom: 1px solid var(--line);
   }
 
-  .about-grid {
+  .about-layout {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 280px 1fr;
     gap: 4rem;
     align-items: start;
   }
 
+  .about-head .section-title {
+    margin-bottom: 0;
+  }
+
   .about-body {
-    max-width: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
   }
 
-  .about-cta-text {
-    margin-top: 1.75rem;
-    font-size: 1.05rem;
-    color: var(--color-text);
+  .about-text {
+    font-size: 0.95rem;
+    line-height: 1.95;
+    color: var(--ink-soft);
   }
 
-  .notice-card {
-    background-color: var(--color-notice);
-    border: 1px solid var(--color-border);
-    border-radius: 0.75rem;
-    padding: 1.75rem;
+  .about-text p + p {
+    margin-top: 1rem;
   }
 
-  .notice-icon {
-    font-size: 1.5rem;
-    margin-bottom: 0.75rem;
-    color: var(--color-secondary);
-  }
-
-  .notice-card h3 {
+  .about-punchline {
+    margin-top: 1.5rem !important;
     font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--color-text);
-    line-height: 1.5;
+    color: var(--ink);
   }
 
-  .notice-card ul {
+  .about-punchline strong {
+    color: var(--green);
+  }
+
+  .about-disclaimer {
+    padding: 1.5rem;
+    border: 1px solid var(--line);
+    background: var(--bg);
+  }
+
+  .disclaimer-head {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 1rem;
+    font-family: var(--mono);
+  }
+
+  .disclaimer-list {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
   }
 
-  .notice-card ul li {
-    font-size: 0.875rem;
-    color: var(--color-text-muted);
-    padding-left: 1.25rem;
+  .disclaimer-list li {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    padding-left: 1.1rem;
     position: relative;
     line-height: 1.6;
   }
 
-  .notice-card ul li::before {
+  .disclaimer-list li::before {
     content: '—';
     position: absolute;
     left: 0;
-    color: var(--color-accent);
+    color: var(--ink-faint);
   }
 
-  @media (max-width: 700px) {
-    .about-grid {
+  @media (max-width: 900px) {
+    .about-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .about-body {
       grid-template-columns: 1fr;
       gap: 2rem;
     }

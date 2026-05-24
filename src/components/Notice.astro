@@ -1,25 +1,42 @@
 ---
 ---
 
-<aside class="notice-bar">
-  <div class="container">
-    <p class="notice-text">
-      このページは、実在する分譲地の販売広告ではありません。「あったらいいな」と思う暮らしの企画を、コンセプトサイトとしてまとめたものです。価格・区画数・設備・サービス内容・法規制・建築可否はすべて構想段階の仮説です。
-    </p>
-  </div>
-</aside>
+<div class="concept-bar">
+  <span class="concept-badge">Concept Project</span>
+  <span class="concept-text">
+    このページは実在する分譲地の販売広告ではありません。構想段階のコンセプトサイトです。
+  </span>
+</div>
 
 <style>
-  .notice-bar {
-    background-color: #e8e2d8;
-    border-bottom: 1px solid #ccc4b4;
-    padding: 0.75rem 0;
+  .concept-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.55rem var(--pad-x);
+    background: var(--bg-dark);
+    color: rgba(255,255,255,0.45);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    line-height: 1;
   }
 
-  .notice-text {
-    font-size: 0.8rem;
-    line-height: 1.7;
-    color: #6b5f52;
-    text-align: center;
+  .concept-badge {
+    flex-shrink: 0;
+    border: 1px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.65);
+    padding: 0.2rem 0.55rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-family: var(--mono);
+  }
+
+  .concept-text {
+    line-height: 1.4;
+  }
+
+  @media (max-width: 600px) {
+    .concept-text { display: none; }
   }
 </style>
