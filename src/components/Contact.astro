@@ -1,0 +1,263 @@
+---
+---
+
+<section id="contact" class="contact">
+  <div class="container">
+    <p class="section-label">Contact</p>
+    <h2 class="section-title">興味・感想フォーム</h2>
+
+    <div class="contact-grid">
+      <div class="contact-intro">
+        <div class="section-body">
+          <p>
+            このサイトは「共感・反応・意見」を集めるためのものです。
+          </p>
+          <p>
+            「住んでみたい」という感想でも、「こんな土地があるよ」という情報でも、
+            「一緒に考えたい」という方でも、ぜひ気軽にメッセージをください。
+          </p>
+          <p>
+            購入申込ではありません。フォームを送っても、何も契約・拘束されません。
+          </p>
+        </div>
+
+        <div class="contact-types">
+          <h3>こんな方からのメッセージを歓迎しています</h3>
+          <ul>
+            <li>週末型セカンドハウスに興味がある方</li>
+            <li>「住んでみたい / 買ってみたい」と思った方</li>
+            <li>不動産・開発事業者として検討してみたい方</li>
+            <li>候補になりそうな土地・地域をご存知の方</li>
+            <li>一緒に企画を考えてみたい方</li>
+            <li>感想・意見・アドバイスを送りたい方</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="form-wrapper">
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          class="contact-form"
+          action="/thanks"
+        >
+          <!-- Netlify hidden field -->
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="hidden" aria-hidden="true">
+            <label>
+              <input name="bot-field" />
+            </label>
+          </p>
+
+          <div class="form-group">
+            <label for="name" class="form-label">
+              お名前 <span class="required">必須</span>
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form-input"
+              placeholder="山田 太郎"
+              required
+              autocomplete="name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="form-label">
+              メールアドレス <span class="required">必須</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-input"
+              placeholder="taro@example.com"
+              required
+              autocomplete="email"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="type" class="form-label">
+              お問い合わせ種別 <span class="required">必須</span>
+            </label>
+            <select id="type" name="type" class="form-select" required>
+              <option value="" disabled selected>選択してください</option>
+              <option value="interest">この企画に興味がある</option>
+              <option value="want-to-live">住んでみたい / 買ってみたい</option>
+              <option value="business">事業として検討してみたい</option>
+              <option value="land-info">土地・地域の候補がある</option>
+              <option value="collaborate">一緒に考えたい</option>
+              <option value="feedback">感想を送りたい</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message" class="form-label">
+              メッセージ <span class="optional">任意</span>
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              class="form-textarea"
+              rows="5"
+              placeholder="感想・意見・質問などをご自由にどうぞ。"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary form-submit">
+            送信する
+          </button>
+
+          <p class="form-privacy">
+            送信内容はNetlify Formsで受け取ります。個人情報は企画検討の目的にのみ使用し、
+            第三者への提供は行いません。
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    background-color: var(--color-bg);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .contact-types {
+    margin-top: 2rem;
+  }
+
+  .contact-types h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+  }
+
+  .contact-types ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .contact-types li {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    padding-left: 1.25rem;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .contact-types li::before {
+    content: '◦';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+  }
+
+  .form-wrapper {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    padding: 2rem;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .required {
+    font-size: 0.7rem;
+    background: var(--color-secondary);
+    color: white;
+    padding: 0.1rem 0.4rem;
+    border-radius: 0.2rem;
+  }
+
+  .optional {
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    width: 100%;
+    padding: 0.65rem 0.9rem;
+    font-size: 0.95rem;
+    font-family: inherit;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    background: var(--color-bg);
+    color: var(--color-text);
+    transition: border-color 0.15s, box-shadow 0.15s;
+    outline: none;
+  }
+
+  .form-input:focus,
+  .form-select:focus,
+  .form-textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(74, 103, 65, 0.12);
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .form-submit {
+    width: 100%;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 0.875rem;
+  }
+
+  .form-privacy {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  @media (max-width: 700px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>

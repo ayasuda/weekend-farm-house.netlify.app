@@ -1,0 +1,104 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <p class="footer-logo">週末セカンドハウス構想</p>
+      <p class="footer-tagline">都内で暮らしながら、週末だけ土に触れる。</p>
+    </div>
+
+    <div class="footer-nav">
+      <a href="#about">この企画について</a>
+      <a href="#concept">暮らしのコンセプト</a>
+      <a href="#specs">区画・建物</a>
+      <a href="#services">管理サービス</a>
+      <a href="#location">立地イメージ</a>
+      <a href="#pricing">価格イメージ</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">感想フォーム</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p class="footer-disclaimer">
+        このページは、実在する分譲地の販売広告ではありません。
+        すべての情報は構想段階の仮説です。
+      </p>
+      <p class="footer-copy">
+        &copy; {currentYear} 週末セカンドハウス構想 — コンセプトサイト
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: var(--color-primary-dark);
+    color: rgba(255, 255, 255, 0.7);
+    padding-top: 3rem;
+  }
+
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .footer-logo {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-tagline {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    align-content: flex-start;
+  }
+
+  .footer-nav a {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-nav a:hover {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .footer-bottom {
+    padding: 1.25rem 0;
+    text-align: center;
+  }
+
+  .footer-disclaimer {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.45);
+    margin-bottom: 0.35rem;
+  }
+
+  .footer-copy {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  @media (max-width: 700px) {
+    .footer-inner {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>

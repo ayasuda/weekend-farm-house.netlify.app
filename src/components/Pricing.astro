@@ -1,0 +1,184 @@
+---
+---
+
+<section id="pricing" class="pricing">
+  <div class="container">
+    <p class="section-label">Pricing</p>
+    <h2 class="section-title">価格イメージ</h2>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-label">土地のみ（想定）</div>
+        <div class="price-value">
+          <span class="price-num">2,000万円</span>
+          <span class="price-unit">程度</span>
+        </div>
+        <p class="price-note">
+          ※ これは仮説です。相場・法規制・実現可能性は未確認です。
+        </p>
+        <ul class="price-includes">
+          <li>土地のみの分譲を想定</li>
+          <li>建物・建築費は別途（建築条件なし）</li>
+          <li>管理費・指導サービス費は別途設定予定</li>
+        </ul>
+      </div>
+
+      <div class="price-disclaimer-block">
+        <h3>価格に関する注意事項</h3>
+        <div class="disclaimer-list">
+          <div class="disclaimer-item">
+            <div class="disclaimer-icon">⚠️</div>
+            <div>
+              <strong>未確認事項が多数あります</strong>
+              <p>価格・区画数・仕様・サービス内容・法規制・建築可否は、すべて構想段階の仮説です。実際に販売する場合は、土地取得コスト・開発費・法規制対応・建築基準法の適用状況など、多くの要素を精査する必要があります。</p>
+            </div>
+          </div>
+          <div class="disclaimer-item">
+            <div class="disclaimer-icon">💡</div>
+            <div>
+              <strong>この価格の根拠</strong>
+              <p>八王子周辺の土地相場と、都市近郊の分譲地の一般的な価格帯をもとに、ざっくりとしたイメージとして設定しています。実際の価格はエリア・面積・開発コストにより大きく変動します。</p>
+            </div>
+          </div>
+          <div class="disclaimer-item">
+            <div class="disclaimer-icon">📝</div>
+            <div>
+              <strong>購入申込は受け付けていません</strong>
+              <p>このサイトは販売広告ではありません。購入の申込・仮予約・金銭のやりとりは一切行っていません。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pricing {
+    background-color: var(--color-bg);
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .price-card {
+    background: var(--color-surface);
+    border: 2px solid var(--color-primary);
+    border-radius: 1rem;
+    padding: 2rem;
+  }
+
+  .price-label {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: var(--color-secondary);
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+
+  .price-value {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .price-num {
+    font-family: var(--font-serif);
+    font-size: 2.25rem;
+    font-weight: 400;
+    color: var(--color-primary-dark);
+  }
+
+  .price-unit {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+  }
+
+  .price-note {
+    font-size: 0.78rem;
+    color: var(--color-secondary);
+    background: var(--color-notice);
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    margin: 1rem 0;
+    line-height: 1.6;
+  }
+
+  .price-includes {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .price-includes li {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .price-includes li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+  }
+
+  .price-disclaimer-block {
+    background: var(--color-notice);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    padding: 2rem;
+  }
+
+  .price-disclaimer-block h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+  }
+
+  .disclaimer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .disclaimer-item {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    gap: 0.75rem;
+    align-items: start;
+  }
+
+  .disclaimer-icon {
+    font-size: 1.1rem;
+    padding-top: 0.1rem;
+  }
+
+  .disclaimer-item strong {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    margin-bottom: 0.35rem;
+  }
+
+  .disclaimer-item p {
+    font-size: 0.825rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 700px) {
+    .pricing-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>

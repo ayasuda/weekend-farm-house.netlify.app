@@ -1,0 +1,121 @@
+---
+const values = [
+  {
+    icon: '🌿',
+    title: '広々とした居住空間',
+    body: '都内では手が届かない広さの土地。家族4人がゆったり暮らせる平屋と、のびのびとした庭。',
+  },
+  {
+    icon: '🥕',
+    title: '本格的な家庭菜園',
+    body: '家庭菜園より一歩進んだ農業体験。専門の農業指導員がサポートするので、初めての方でも安心。',
+  },
+  {
+    icon: '🏠',
+    title: 'もうひとつの生活拠点',
+    body: '完全移住ではない、ゆるやかな二拠点生活。都内の仕事も続けながら、週末だけ別の暮らしを持つ。',
+  },
+  {
+    icon: '👨‍👩‍👧‍👦',
+    title: '子どもに自然体験を',
+    body: '土に触れ、種を植え、収穫の喜びを知る。季節の変化を身体で感じる体験を、子どもに。',
+  },
+  {
+    icon: '🔥',
+    title: '庭でバーベキュー',
+    body: '各区画の庭にバーベキュースペースを設ける想定。週末の夕食を、庭の外で。',
+  },
+  {
+    icon: '🚃',
+    title: '電車で50分の距離感',
+    body: '都内から電車で50分以内。たとえば八王子周辺。通いやすく、気軽に行き来できる距離感。',
+  },
+] as const;
+---
+
+<section id="concept" class="concept">
+  <div class="container">
+    <p class="section-label">Concept</p>
+    <h2 class="section-title">暮らしのコンセプト</h2>
+
+    <div class="concept-lead section-body">
+      <p>
+        都市での暮らしを手放さずに、週末だけもうひとつの生活を持つ。
+        完全移住でも別荘でもない、新しいライフスタイルの提案です。
+      </p>
+      <p>
+        対象は、都内で働く20代後半〜50代前半の核家族。
+        子どもに自然体験をさせたい、でも引越しまでは考えていない——そんな家族に向けた企画です。
+      </p>
+    </div>
+
+    <div class="values-grid">
+      {values.map((v) => (
+        <div class="value-card">
+          <div class="value-icon">{v.icon}</div>
+          <h3 class="value-title">{v.title}</h3>
+          <p class="value-body">{v.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .concept {
+    background-color: var(--color-bg);
+  }
+
+  .concept-lead {
+    margin-bottom: 3rem;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .value-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    padding: 1.75rem;
+    transition: box-shadow 0.2s;
+  }
+
+  .value-card:hover {
+    box-shadow: 0 4px 16px rgba(74, 103, 65, 0.1);
+  }
+
+  .value-icon {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .value-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-primary-dark);
+    margin-bottom: 0.6rem;
+    line-height: 1.4;
+  }
+
+  .value-body {
+    font-size: 0.875rem;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 900px) {
+    .values-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 550px) {
+    .values-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,146 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title = '小さな農園付き分譲地、あなたの週末セカンドハウス',
+  description = '都内で暮らしながら、週末だけ土に触れる。都市生活者のための週末型セカンドハウス構想サイトです。',
+  ogImage = '/og-image.svg',
+} = Astro.props;
+
+const siteUrl = 'https://weekend-farm-house.netlify.app';
+const fullOgImage = `${siteUrl}${ogImage}`;
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- OGP -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={fullOgImage} />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:site_name" content="週末セカンドハウス構想" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={fullOgImage} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+
+    <style>
+      :root {
+        --color-bg: #f7f4ef;
+        --color-surface: #ffffff;
+        --color-primary: #4a6741;
+        --color-primary-dark: #354d2f;
+        --color-secondary: #8b6e4e;
+        --color-accent: #c8a96e;
+        --color-text: #2c2c2c;
+        --color-text-muted: #6b6b6b;
+        --color-border: #d9d0c4;
+        --color-notice: #f0ebe3;
+
+        --font-sans: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP',
+          'Yu Gothic', 'Meiryo', sans-serif;
+        --font-serif: 'Hiragino Mincho ProN', 'Hiragino Mincho Pro', 'Yu Mincho',
+          'Noto Serif JP', serif;
+
+        --max-width: 960px;
+        --section-gap: 5rem;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font-sans);
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        line-height: 1.8;
+        font-size: 1rem;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      a {
+        color: var(--color-primary);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      section {
+        padding: var(--section-gap) 0;
+      }
+
+      .section-label {
+        font-size: 0.75rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--color-secondary);
+        margin-bottom: 0.75rem;
+        font-family: 'Georgia', serif;
+      }
+
+      .section-title {
+        font-family: var(--font-serif);
+        font-size: clamp(1.5rem, 4vw, 2.25rem);
+        font-weight: 400;
+        line-height: 1.4;
+        color: var(--color-text);
+        margin-bottom: 2rem;
+      }
+
+      .section-body {
+        font-size: 1rem;
+        line-height: 2;
+        color: var(--color-text-muted);
+        max-width: 640px;
+      }
+
+      .section-body p + p {
+        margin-top: 1.25rem;
+      }
+    </style>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,165 @@
+---
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <span class="logo-main">週末セカンドハウス構想</span>
+      <span class="logo-sub">小さな農園付き分譲地</span>
+    </a>
+    <nav class="nav">
+      <a href="#concept">コンセプト</a>
+      <a href="#specs">区画・建物</a>
+      <a href="#services">管理サービス</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="nav-cta">感想を送る</a>
+    </nav>
+    <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle') as HTMLButtonElement;
+  const nav = document.querySelector('.nav') as HTMLElement;
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('nav-open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  document.querySelectorAll('.nav a').forEach((link) => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('nav-open');
+      toggle?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(247, 244, 239, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4rem;
+    gap: 1rem;
+  }
+
+  .logo {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    line-height: 1.2;
+  }
+
+  .logo-main {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-primary-dark);
+    letter-spacing: 0.03em;
+  }
+
+  .logo-sub {
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+  }
+
+  .nav a {
+    font-size: 0.875rem;
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav a:hover {
+    color: var(--color-primary);
+  }
+
+  .nav-cta {
+    background-color: var(--color-primary);
+    color: #fff !important;
+    padding: 0.4rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.8rem !important;
+    transition: background-color 0.2s !important;
+  }
+
+  .nav-cta:hover {
+    background-color: var(--color-primary-dark) !important;
+  }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--color-text);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  @media (max-width: 700px) {
+    .nav-toggle {
+      display: flex;
+    }
+
+    .nav {
+      display: none;
+      position: absolute;
+      top: 4rem;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      background: var(--color-bg);
+      border-bottom: 1px solid var(--color-border);
+      padding: 0.5rem 0;
+    }
+
+    .nav.nav-open {
+      display: flex;
+    }
+
+    .nav a {
+      width: 100%;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem !important;
+    }
+
+    .nav-cta {
+      border-radius: 0 !important;
+      background: none !important;
+      color: var(--color-primary) !important;
+      border-top: 1px solid var(--color-border);
+      margin-top: 0.25rem;
+    }
+  }
+</style>
