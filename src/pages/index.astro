@@ -1,0 +1,323 @@
+---
+import {
+  basicManagement,
+  conceptNotes,
+  faqs,
+  farmingSupport,
+  gardenCare,
+  housePlan,
+  inquiryTypes,
+  managementBuilding,
+  navItems,
+  plotSpecs,
+  site,
+  targetUsers,
+  values,
+} from "@/data/site";
+import "@/styles/global.css";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: site.title,
+  description: site.description,
+  url: site.url,
+  inLanguage: "ja-JP",
+};
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{site.title}</title>
+    <meta name="description" content={site.description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={site.url} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:site_name" content={site.title} />
+    <meta property="og:title" content={site.title} />
+    <meta property="og:description" content={site.description} />
+    <meta property="og:url" content={site.url} />
+    <meta property="og:image" content={`${site.url}/og-image.svg`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={site.title} />
+    <meta name="twitter:description" content={site.description} />
+    <meta name="twitter:image" content={`${site.url}/og-image.svg`} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="トップへ">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Weekend Farm House</span>
+      </a>
+      <nav aria-label="ページ内ナビゲーション">
+        {navItems.map(([label, id]) => <a href={`#${id}`}>{label}</a>)}
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero section-band">
+        <div class="hero-copy">
+          <p class="eyebrow">Concept site / not for sale</p>
+          <h1>{site.title}</h1>
+          <p class="lead">{site.subtitle}</p>
+          <p>
+            平日は都市で働き、週末は少しだけ都市を離れる。家族で泊まれて、庭で火を囲み、裏庭で野菜を育てる。そんな暮らしが、都内から50分圏にあったらどうだろう。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#contact">興味・感想を送る</a>
+            <a class="button secondary" href="#about">企画を読む</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="週末セカンドハウスの敷地イメージ">
+          <div class="visual-sky"></div>
+          <div class="visual-house">
+            <span class="roof"></span>
+            <span class="wall"></span>
+            <span class="deck"></span>
+          </div>
+          <div class="visual-garden">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="visual-path"></div>
+          <div class="visual-label home">平屋</div>
+          <div class="visual-label garden">裏庭型菜園</div>
+        </div>
+      </section>
+
+      <section class="notice" aria-label="注意書き">
+        <strong>このページは、実在する分譲地の販売広告ではありません。</strong>
+        <span>
+          「あったらいいな」と思う暮らしの企画を、コンセプトサイトとしてまとめたものです。価格・区画数・設備・サービス内容・法規制・建築可否はすべて構想段階の仮説です。
+        </span>
+      </section>
+
+      <section class="section" id="about">
+        <div class="section-heading">
+          <p class="eyebrow">About</p>
+          <h2>この企画について</h2>
+        </div>
+        <div class="two-column">
+          <div>
+            <p>
+              都内在住の家族を対象にした、週末に住むためのセカンドハウス構想です。ちょっと大きめの家庭菜園から小規模の農業経験をしつつ、人生に彩りを与える生活を提供します。
+            </p>
+            <p>
+              これは販売告知ではなく、需要・反応・共感を観測するための公開企画書です。同時に、この企画を本当に実現できる不動産会社・デベロッパー・地域事業者・自治体関係者への、ゆるい企画提案でもあります。
+            </p>
+          </div>
+          <div class="quiet-panel">
+            <p class="panel-title">要するに</p>
+            <p class="large-line">誰かこれ、やってくれません？</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section muted" id="life">
+        <div class="section-heading">
+          <p class="eyebrow">Lifestyle</p>
+          <h2>暮らしのコンセプト</h2>
+        </div>
+        <div class="grid three">
+          {conceptNotes.map((note) => <article class="mini-card"><p>{note}</p></article>)}
+        </div>
+        <div class="two-column offset">
+          <div>
+            <h3>想定する家族</h3>
+            <ul class="check-list">
+              {targetUsers.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+          <div>
+            <h3>提供したい価値</h3>
+            <ul class="check-list">
+              {values.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="plan">
+        <div class="section-heading">
+          <p class="eyebrow">Plan</p>
+          <h2>区画・建物イメージ</h2>
+        </div>
+        <div class="plan-layout">
+          <div class="site-plan" aria-label="区画配置の簡易イメージ">
+            {Array.from({ length: 16 }).map((_, index) => (
+              <span class={index === 3 || index === 12 ? "shared" : ""}></span>
+            ))}
+          </div>
+          <div>
+            <h3>区画スペック</h3>
+            <ul class="check-list">
+              {plotSpecs.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+        </div>
+        <div class="floor-plan-wrap">
+          <div class="floor-plan" aria-label="4人家族向け平屋モデルの簡易間取り">
+            <span class="room ldk">LDK</span>
+            <span class="room bed">主寝室</span>
+            <span class="room kids">子ども部屋</span>
+            <span class="room multi">多目的室</span>
+            <span class="room storage">収納</span>
+            <span class="room deck">ウッドデッキ</span>
+            <span class="room bbq">庭・BBQ</span>
+            <span class="room farm">裏庭型家庭菜園</span>
+          </div>
+          <div>
+            <h3>4人家族向けの平屋モデル</h3>
+            <p>
+              建築条件なしの分譲土地として、購入者が自由に建築できる想定です。例として、家族が泊まれる平屋と、各家庭の庭にバーベキュースペースを設ける構成を置いています。
+            </p>
+            <div class="tag-list">
+              {housePlan.map((item) => <span>{item}</span>)}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section muted" id="services">
+        <div class="section-heading">
+          <p class="eyebrow">Support</p>
+          <h2>農業指導・管理サービス</h2>
+        </div>
+        <div class="grid three">
+          <article class="info-block">
+            <h3>共同管理棟</h3>
+            <ul>
+              {managementBuilding.map((item) => <li>{item}</li>)}
+            </ul>
+          </article>
+          <article class="info-block">
+            <h3>基本管理サービス</h3>
+            <ul>
+              {basicManagement.map((item) => <li>{item}</li>)}
+            </ul>
+            <p class="small-note">各区画内部の維持管理は、原則として所有者が行う想定です。</p>
+          </article>
+          <article class="info-block">
+            <h3>営農指導サービス</h3>
+            <ul>
+              {farmingSupport.map((item) => <li>{item}</li>)}
+            </ul>
+            <p class="small-note">水曜・木曜休み、日中帯対応を想定しています。</p>
+          </article>
+        </div>
+        <div class="service-strip">
+          <div>
+            <h3>菜園管理代行サービス</h3>
+            <p>
+              平日に現地へ来られない利用者向けに、水やり・簡易除草・病害虫確認・収穫補助・状況報告などを有料で提供する構想です。料金体系は未定です。
+            </p>
+          </div>
+          <div class="tag-list compact">
+            {gardenCare.map((item) => <span>{item}</span>)}
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="location">
+        <div class="section-heading">
+          <p class="eyebrow">Location</p>
+          <h2>立地イメージ</h2>
+        </div>
+        <div class="location-block">
+          <div class="route-visual" aria-label="都内から郊外への距離感">
+            <span>都内</span>
+            <i></i>
+            <span>約50分</span>
+            <i></i>
+            <span>八王子周辺など</span>
+          </div>
+          <p>
+            都内から電車で50分以内に行ける場所、たとえば八王子周辺をイメージしています。都市との接続を保ちながら、週末に気軽に通える距離感を重視します。
+          </p>
+        </div>
+      </section>
+
+      <section class="section price-section" id="price">
+        <div class="section-heading">
+          <p class="eyebrow">Price Hypothesis</p>
+          <h2>価格イメージ</h2>
+        </div>
+        <div class="price-box">
+          <div>
+            <p class="price-label">土地のみ</p>
+            <p class="price">2,000万円程度</p>
+          </div>
+          <p>
+            これは仮説です。価格・仕様・法規制・建築可否は未確認であり、今後検討が必要です。
+          </p>
+        </div>
+      </section>
+
+      <section class="section muted" id="faq">
+        <div class="section-heading">
+          <p class="eyebrow">FAQ</p>
+          <h2>よくある質問</h2>
+        </div>
+        <div class="faq-list">
+          {faqs.map((faq) => (
+            <details>
+              <summary>{faq.q}</summary>
+              <p>{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact">
+        <div class="section-heading">
+          <p class="eyebrow">Contact</p>
+          <h2>興味・感想フォーム</h2>
+          <p>
+            購入申込ではありません。共感、違和感、事業化の相談、候補地の話などを受け取るためのフォームです。
+          </p>
+        </div>
+        <form
+          class="contact-form"
+          name="interest"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="interest" />
+          <p class="hidden">
+            <label>入力しないでください <input name="bot-field" /></label>
+          </p>
+          <label>
+            <span>お名前</span>
+            <input type="text" name="name" autocomplete="name" required />
+          </label>
+          <label>
+            <span>メールアドレス</span>
+            <input type="email" name="email" autocomplete="email" required />
+          </label>
+          <label>
+            <span>お問い合わせ種別</span>
+            <select name="type" required>
+              <option value="">選択してください</option>
+              {inquiryTypes.map((type) => <option value={type}>{type}</option>)}
+            </select>
+          </label>
+          <label>
+            <span>メッセージ</span>
+            <textarea name="message" rows="6" required></textarea>
+          </label>
+          <button type="submit">送信する</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>{site.title}</p>
+      <p>構想段階のコンセプトサイトです。販売広告ではありません。</p>
+    </footer>
+  </body>
+</html>

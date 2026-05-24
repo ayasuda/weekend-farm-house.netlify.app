@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="小さな農園付き分譲地、あなたの週末セカンドハウス">
+  <rect width="1200" height="630" fill="#fffdf7"/>
+  <rect y="360" width="1200" height="270" fill="#e8ead6"/>
+  <path d="M0 370 C170 310 280 365 430 315 C600 260 740 360 910 300 C1030 258 1120 280 1200 240 L1200 0 L0 0 Z" fill="#d8e6e6"/>
+  <g transform="translate(120 160)">
+    <path d="M90 170 L240 50 L390 170 Z" fill="#b96f4d"/>
+    <rect x="135" y="165" width="210" height="145" fill="#f6e7d2" stroke="#4f3d2f" stroke-opacity=".24" stroke-width="4"/>
+    <rect x="190" y="220" width="52" height="90" fill="#536f48"/>
+    <rect x="265" y="215" width="48" height="40" fill="#d8e6e6"/>
+    <rect x="90" y="310" width="330" height="26" fill="#9c7659"/>
+  </g>
+  <g transform="translate(630 290)">
+    <rect x="0" y="0" width="420" height="54" rx="27" fill="#536f48"/>
+    <rect x="0" y="78" width="420" height="54" rx="27" fill="#9cac6d"/>
+    <rect x="0" y="156" width="420" height="54" rx="27" fill="#536f48"/>
+  </g>
+  <text x="92" y="92" fill="#31483a" font-family="Hiragino Sans, Yu Gothic, sans-serif" font-size="28" font-weight="700">Concept site / not for sale</text>
+  <text x="92" y="480" fill="#25231f" font-family="Hiragino Sans, Yu Gothic, sans-serif" font-size="58" font-weight="700">小さな農園付き分譲地、</text>
+  <text x="92" y="552" fill="#25231f" font-family="Hiragino Sans, Yu Gothic, sans-serif" font-size="58" font-weight="700">あなたの週末セカンドハウス</text>
+</svg>
