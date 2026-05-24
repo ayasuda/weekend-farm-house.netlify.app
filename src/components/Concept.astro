@@ -52,6 +52,14 @@ const targets = [
       </p>
     </div>
 
+    <div class="concept-photo">
+      <img
+        src="/garden-rows.png"
+        alt="菜園の畝 — 家庭菜園のイメージ"
+        class="concept-photo-img"
+      />
+    </div>
+
     <div class="values-grid">
       {values.map((v) => (
         <div class="value-item">
@@ -81,6 +89,24 @@ const targets = [
 
   .concept-header {
     margin-bottom: 3rem;
+  }
+
+  .concept-photo {
+    margin-bottom: 3rem;
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+
+  .concept-photo-img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  @media (max-width: 600px) {
+    .concept-photo-img { height: 200px; }
   }
 
   .concept-lead {
