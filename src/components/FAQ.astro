@@ -10,23 +10,19 @@ const faqs = [
   },
   {
     q: '価格は確定ですか？',
-    a: 'いいえ。土地のみ2,000万円程度というのは、あくまで構想段階の仮説です。実際の価格はエリア・面積・開発コスト等により大きく変動します。',
+    a: 'いいえ。土地のみ2,000万円程度というのは構想段階の仮説です。実際の価格はエリア・面積・開発コスト等により大きく変動します。',
   },
   {
     q: '法規制や建築可否は確認済みですか？',
-    a: 'いいえ。今後検討が必要な項目です。農地法・建築基準法・用途地域など、関連法規の確認は未実施です。',
+    a: 'いいえ。農地法・建築基準法・用途地域など、関連法規の確認は未実施です。今後検討が必要な項目です。',
   },
   {
     q: 'なぜこのサイトを作ったのですか？',
-    a: '都市生活者向けの週末型セカンドハウスという暮らし方に、どれくらい共感があるかを可視化するためです。また、この企画を実現できる不動産会社・デベロッパー・地域事業者・自治体関係者に向けた、ゆるい企画提案でもあります。',
-  },
-  {
-    q: '電車がない場合はどうするのですか？',
-    a: '電車でのアクセスを重視した立地を想定していますが、自動車での利用も排除しません。共同管理棟には共用駐車スペースを設ける構想です。',
+    a: '都市生活者向けの週末型セカンドハウスという暮らし方に、どれくらい共感があるかを可視化するためです。また、この企画を実現できる不動産会社・デベロッパー・地域事業者・自治体関係者への、ゆるい企画提案でもあります。',
   },
   {
     q: '農業経験がなくても大丈夫ですか？',
-    a: '農業経験がない方を主な対象としています。農業指導員が常駐し、作付け相談や初心者向け講習を提供する構想です。また、平日に来られない方向けの菜園管理代行サービスも検討しています。',
+    a: '農業経験がない方を主な対象としています。農業指導員が常駐し、作付け相談や初心者向け講習を提供する構想です。平日に来られない方向けの菜園管理代行サービスも検討しています。',
   },
   {
     q: '建物の建築も一緒に依頼できますか？',
@@ -34,23 +30,27 @@ const faqs = [
   },
   {
     q: '事業として一緒に取り組みたい場合はどうすればよいですか？',
-    a: 'フォームよりお問い合わせください。不動産会社・デベロッパー・地域事業者・自治体関係者の方のご連絡を歓迎しています。',
+    a: '特に連絡なく、勝手に進めていただいて大丈夫です。もちろん、一声かけてもらえると嬉しいです。',
+  },
+  {
+    q: '候補地・地域情報を持っています。どうすればよいですか？',
+    a: '特に連絡なく、勝手に動いていただいて大丈夫です。具体的な候補地は未定なので、ぜひ。',
   },
 ] as const;
 ---
 
 <section id="faq" class="faq">
   <div class="container">
-    <p class="section-label">FAQ</p>
+    <span class="section-label">FAQ</span>
     <h2 class="section-title">よくある質問</h2>
 
     <div class="faq-list">
       {faqs.map((item, i) => (
-        <details class="faq-item" name="faq">
+        <details class="faq-item" name="faq-group">
           <summary class="faq-q">
-            <span class="faq-q-num">Q{i + 1}</span>
+            <span class="faq-index">{String(i + 1).padStart(2, '0')}</span>
             <span class="faq-q-text">{item.q}</span>
-            <span class="faq-chevron" aria-hidden="true">▾</span>
+            <span class="faq-arrow" aria-hidden="true">+</span>
           </summary>
           <div class="faq-a">
             <p>{item.a}</p>
@@ -63,102 +63,89 @@ const faqs = [
 
 <style>
   .faq {
-    background-color: var(--color-surface);
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
   }
 
   .faq-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    border: 1px solid var(--color-border);
-    border-radius: 0.75rem;
-    overflow: hidden;
+    border: 1px solid var(--line);
   }
 
   .faq-item {
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--line-soft);
+    background: var(--bg-white);
   }
 
-  .faq-item:last-child {
-    border-bottom: none;
-  }
+  .faq-item:last-child { border-bottom: none; }
 
   .faq-q {
     display: grid;
     grid-template-columns: 2.5rem 1fr 1.5rem;
     align-items: center;
-    gap: 0.75rem;
+    gap: 1rem;
     padding: 1.25rem 1.5rem;
     cursor: pointer;
     list-style: none;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 500;
-    color: var(--color-text);
-    background: var(--color-surface);
-    transition: background-color 0.15s;
+    color: var(--ink);
+    transition: background 0.15s;
     user-select: none;
   }
 
   .faq-q:hover {
-    background-color: var(--color-notice);
+    background: var(--bg);
   }
 
   .faq-item[open] .faq-q {
-    background-color: var(--color-notice);
+    background: var(--bg);
   }
 
-  .faq-q::-webkit-details-marker {
-    display: none;
-  }
+  .faq-q::-webkit-details-marker { display: none; }
 
-  .faq-q-num {
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--color-primary);
-    background: rgba(74, 103, 65, 0.1);
-    border-radius: 0.25rem;
-    padding: 0.2rem 0.5rem;
-    text-align: center;
+  .faq-index {
+    font-size: 0.65rem;
+    font-family: var(--mono);
+    color: var(--ink-faint);
+    letter-spacing: 0.05em;
   }
 
   .faq-q-text {
     line-height: 1.5;
   }
 
-  .faq-chevron {
-    font-size: 1rem;
-    color: var(--color-text-muted);
+  .faq-arrow {
+    font-size: 1.2rem;
+    color: var(--ink-faint);
     transition: transform 0.2s;
     text-align: right;
+    font-weight: 300;
+    line-height: 1;
   }
 
-  .faq-item[open] .faq-chevron {
-    transform: rotate(180deg);
+  .faq-item[open] .faq-arrow {
+    transform: rotate(45deg);
   }
 
   .faq-a {
-    padding: 1rem 1.5rem 1.25rem calc(2.5rem + 0.75rem + 1.5rem);
-    background: var(--color-notice);
-    border-top: 1px solid var(--color-border);
+    padding: 0 1.5rem 1.5rem calc(2.5rem + 1rem + 1.5rem);
   }
 
   .faq-a p {
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
-    line-height: 1.8;
+    font-size: 0.875rem;
+    color: var(--ink-soft);
+    line-height: 1.85;
   }
 
   @media (max-width: 550px) {
     .faq-q {
       grid-template-columns: 2rem 1fr 1.25rem;
-      gap: 0.5rem;
-      padding: 1rem 1rem;
+      gap: 0.75rem;
+      padding: 1rem;
     }
 
     .faq-a {
-      padding: 1rem;
+      padding: 0 1rem 1rem 1rem;
     }
   }
 </style>

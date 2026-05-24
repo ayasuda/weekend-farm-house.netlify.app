@@ -1,88 +1,51 @@
 ---
+const data = [
+  { label: '想定エリア', value: '八王子周辺（構想）' },
+  { label: '都内からの所要時間', value: '電車で約50分以内' },
+  { label: '交通手段', value: '電車アクセスを重視' },
+  { label: '週のリズム', value: '平日は都内・週末は現地' },
+  { label: '具体的な候補地', value: '未定（情報募集中）' },
+] as const;
 ---
 
 <section id="location" class="location">
   <div class="container">
-    <p class="section-label">Location</p>
+    <span class="section-label">Location</span>
     <h2 class="section-title">立地イメージ</h2>
 
-    <div class="location-grid">
-      <div class="location-body">
-        <div class="section-body">
-          <p>
-            都内から電車で50分以内に行ける場所を想定しています。
-            たとえば、八王子周辺。
-          </p>
-          <p>
-            週末に気軽に通える距離感を重視します。
-            完全移住とは違い、都市との接続を保ちながら、もうひとつの生活拠点を持つ——
-            そのバランスが、この企画の核心です。
-          </p>
-        </div>
+    <div class="location-layout">
+      <div class="location-text">
+        <p>
+          都内から電車で50分以内に行ける場所を想定しています。
+          たとえば、八王子周辺。
+        </p>
+        <p>
+          週末に気軽に通える距離感を重視します。
+          都市との接続を保ちながら、もうひとつの生活拠点を持つ——
+          そのバランスが、この企画の核心です。
+        </p>
 
-        <div class="location-tags">
-          <div class="location-tag">
-            <span class="tag-label">想定エリア</span>
-            <span class="tag-value">八王子周辺（構想）</span>
-          </div>
-          <div class="location-tag">
-            <span class="tag-label">都内からの所要時間</span>
-            <span class="tag-value">電車で50分以内（目安）</span>
-          </div>
-          <div class="location-tag">
-            <span class="tag-label">交通手段</span>
-            <span class="tag-value">電車でのアクセスを重視</span>
-          </div>
-          <div class="location-tag">
-            <span class="tag-label">想定する週のリズム</span>
-            <span class="tag-value">平日は都内・週末は現地</span>
-          </div>
-        </div>
+        <dl class="location-data">
+          {data.map((d) => (
+            <div class="location-data-row">
+              <dt>{d.label}</dt>
+              <dd>{d.value}</dd>
+            </div>
+          ))}
+        </dl>
 
-        <p class="location-disclaimer">
-          ※ 具体的な候補地は未定です。エリアは構想段階のイメージです。
-          候補地・地域情報をお持ちの方は、ぜひフォームからご連絡ください。
+        <p class="location-callout">
+          候補地・地域情報をお持ちの方、不動産会社・デベロッパー・地域事業者の方は、
+          特に連絡なく勝手に動いていただいて大丈夫です。
         </p>
       </div>
 
-      <div class="location-map-placeholder">
-        <div class="map-visual">
-          <svg viewBox="0 0 320 280" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="首都圏エリアのイメージ図">
-            <!-- Background -->
-            <rect width="320" height="280" fill="#e8f0e4" rx="8"/>
-
-            <!-- Sea/bay area -->
-            <ellipse cx="230" cy="180" rx="100" ry="80" fill="#b8d4e8" opacity="0.6"/>
-
-            <!-- Land mass simplified -->
-            <path d="M20 60 Q80 40 140 50 Q200 45 260 60 Q290 80 300 120 Q310 160 280 180 Q240 200 200 200 Q160 195 130 210 Q100 230 70 220 Q40 210 25 190 Q10 165 15 130 Q18 95 20 60Z" fill="#c8dab8"/>
-
-            <!-- Tokyo area dot -->
-            <circle cx="190" cy="130" r="12" fill="#e8735a" opacity="0.85"/>
-            <text x="190" y="115" text-anchor="middle" font-size="9" fill="#c0392b" font-family="sans-serif" font-weight="bold">都内</text>
-
-            <!-- Target area dot -->
-            <circle cx="100" cy="120" r="10" fill="#4a6741" opacity="0.9"/>
-            <circle cx="100" cy="120" r="18" fill="#4a6741" opacity="0.15"/>
-            <text x="100" y="105" text-anchor="middle" font-size="9" fill="#354d2f" font-family="sans-serif" font-weight="bold">八王子周辺</text>
-            <text x="100" y="116" text-anchor="middle" font-size="8" fill="#4a6741" font-family="sans-serif">（候補）</text>
-
-            <!-- Arrow/line between them -->
-            <line x1="115" y1="120" x2="175" y2="130" stroke="#8b7355" stroke-width="1.5" stroke-dasharray="4,3"/>
-
-            <!-- Distance label -->
-            <text x="145" y="112" text-anchor="middle" font-size="8.5" fill="#6b5f52" font-family="sans-serif">電車50分以内</text>
-
-            <!-- Legend -->
-            <circle cx="30" cy="255" r="5" fill="#e8735a" opacity="0.85"/>
-            <text x="42" y="259" font-size="9" fill="#6b6b6b" font-family="sans-serif">都内（主な生活拠点）</text>
-            <circle cx="30" cy="272" r="5" fill="#4a6741" opacity="0.9"/>
-            <text x="42" y="276" font-size="9" fill="#6b6b6b" font-family="sans-serif">週末セカンドハウス候補地</text>
-          </svg>
-        </div>
-        <p class="map-note">
-          地図はイメージです。実際の候補地は未定です。
-        </p>
+      <div class="location-visual">
+        <img
+          src="/location-map.png"
+          alt="東京都心から八王子周辺までの距離感のイメージ"
+          class="location-map-img"
+        />
       </div>
     </div>
   </div>
@@ -90,77 +53,82 @@
 
 <style>
   .location {
-    background-color: var(--color-surface);
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
+    background: var(--bg-white);
+    border-bottom: 1px solid var(--line);
   }
 
-  .location-grid {
+  .location-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: start;
   }
 
-  .location-tags {
+  .location-text {
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: var(--ink-soft);
+  }
+
+  .location-text p + p {
+    margin-top: 0.9rem;
+  }
+
+  .location-data {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    margin: 2rem 0;
+    margin: 2rem 0 1.5rem;
   }
 
-  .location-tag {
+  .location-data-row {
     display: grid;
     grid-template-columns: 140px 1fr;
-    gap: 0.75rem;
-    padding: 0.75rem 0;
-    border-bottom: 1px solid var(--color-border);
+    gap: 1rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--line-soft);
   }
 
-  .tag-label {
-    font-size: 0.8rem;
+  dt {
+    font-size: 0.75rem;
     font-weight: 600;
-    color: var(--color-text-muted);
+    color: var(--ink-muted);
+    font-family: var(--mono);
+    padding-top: 0.1rem;
   }
 
-  .tag-value {
-    font-size: 0.9rem;
-    color: var(--color-text);
+  dd {
+    font-size: 0.875rem;
+    color: var(--ink);
   }
 
-  .location-disclaimer {
-    font-size: 0.8rem;
-    color: var(--color-text-muted);
+  .location-callout {
+    font-size: 0.82rem;
+    color: var(--ink-muted);
     line-height: 1.7;
-    border-left: 3px solid var(--color-accent);
-    padding-left: 1rem;
+    padding: 0.75rem 1rem;
+    border-left: 2px solid var(--green);
+    background: var(--green-light);
   }
 
-  .map-visual {
-    border-radius: 0.75rem;
+  .location-visual {
+    border: 1px solid var(--line);
     overflow: hidden;
-    border: 1px solid var(--color-border);
-    margin-bottom: 0.75rem;
   }
 
-  .map-visual svg {
+  .location-map-img {
     width: 100%;
     height: auto;
+    display: block;
   }
 
-  .map-note {
-    font-size: 0.78rem;
-    color: var(--color-text-muted);
-  }
-
-  @media (max-width: 700px) {
-    .location-grid {
+  @media (max-width: 768px) {
+    .location-layout {
       grid-template-columns: 1fr;
       gap: 2rem;
     }
 
-    .location-tag {
-      grid-template-columns: 120px 1fr;
+    .location-data-row {
+      grid-template-columns: 110px 1fr;
     }
   }
 </style>

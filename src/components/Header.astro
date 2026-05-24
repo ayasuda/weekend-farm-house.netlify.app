@@ -2,19 +2,27 @@
 ---
 
 <header class="site-header">
-  <div class="container header-inner">
-    <a href="/" class="logo">
-      <span class="logo-main">週末セカンドハウス構想</span>
-      <span class="logo-sub">小さな農園付き分譲地</span>
+  <div class="header-inner container">
+    <a href="/" class="logo" aria-label="トップへ">
+      <span class="logo-en">Weekend Farm House</span>
+      <span class="logo-ja">週末セカンドハウス構想</span>
     </a>
-    <nav class="nav">
-      <a href="#concept">コンセプト</a>
-      <a href="#specs">区画・建物</a>
-      <a href="#services">管理サービス</a>
+
+    <nav class="nav" id="site-nav" aria-label="メインナビゲーション">
+      <a href="#about">About</a>
+      <a href="#concept">Concept</a>
+      <a href="#specs">Plan</a>
+      <a href="#services">Support</a>
       <a href="#faq">FAQ</a>
-      <a href="#contact" class="nav-cta">感想を送る</a>
+      <a href="#contact" class="nav-contact">興味・感想を送る</a>
     </nav>
-    <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+
+    <button
+      class="nav-toggle"
+      aria-label="メニューを開く"
+      aria-expanded="false"
+      aria-controls="site-nav"
+    >
       <span></span>
       <span></span>
       <span></span>
@@ -24,14 +32,14 @@
 
 <script>
   const toggle = document.querySelector('.nav-toggle') as HTMLButtonElement;
-  const nav = document.querySelector('.nav') as HTMLElement;
+  const nav = document.getElementById('site-nav') as HTMLElement;
 
   toggle?.addEventListener('click', () => {
     const isOpen = nav.classList.toggle('nav-open');
     toggle.setAttribute('aria-expanded', String(isOpen));
   });
 
-  document.querySelectorAll('.nav a').forEach((link) => {
+  nav?.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
       nav.classList.remove('nav-open');
       toggle?.setAttribute('aria-expanded', 'false');
@@ -44,122 +52,126 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(247, 244, 239, 0.95);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--color-border);
+    background: rgba(249, 247, 243, 0.96);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
   }
 
   .header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 4rem;
-    gap: 1rem;
+    height: 3.75rem;
+    gap: 2rem;
   }
 
   .logo {
     display: flex;
     flex-direction: column;
+    gap: 0.1rem;
     text-decoration: none;
-    line-height: 1.2;
+    line-height: 1;
   }
 
-  .logo-main {
-    font-size: 0.9rem;
+  .logo-en {
+    font-size: 0.85rem;
     font-weight: 600;
-    color: var(--color-primary-dark);
-    letter-spacing: 0.03em;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    text-transform: uppercase;
   }
 
-  .logo-sub {
-    font-size: 0.7rem;
-    color: var(--color-text-muted);
+  .logo-ja {
+    font-size: 0.62rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.05em;
   }
 
   .nav {
     display: flex;
     align-items: center;
-    gap: 1.75rem;
+    gap: 2rem;
   }
 
   .nav a {
-    font-size: 0.875rem;
-    color: var(--color-text);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    transition: color 0.15s;
     text-decoration: none;
-    transition: color 0.2s;
   }
 
   .nav a:hover {
-    color: var(--color-primary);
+    color: var(--ink);
   }
 
-  .nav-cta {
-    background-color: var(--color-primary);
-    color: #fff !important;
-    padding: 0.4rem 1rem;
-    border-radius: 2rem;
-    font-size: 0.8rem !important;
-    transition: background-color 0.2s !important;
+  .nav-contact {
+    font-size: 0.75rem !important;
+    letter-spacing: 0.04em !important;
+    text-transform: none !important;
+    border: 1px solid var(--line) !important;
+    padding: 0.4rem 0.9rem;
+    color: var(--ink) !important;
+    transition: border-color 0.15s, color 0.15s !important;
   }
 
-  .nav-cta:hover {
-    background-color: var(--color-primary-dark) !important;
+  .nav-contact:hover {
+    border-color: var(--ink) !important;
+    color: var(--ink) !important;
   }
 
   .nav-toggle {
     display: none;
     flex-direction: column;
+    justify-content: center;
     gap: 5px;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 0.25rem;
+    padding: 0.35rem;
+    width: 2rem;
+    height: 2rem;
   }
 
   .nav-toggle span {
     display: block;
-    width: 22px;
-    height: 2px;
-    background: var(--color-text);
-    border-radius: 2px;
-    transition: all 0.3s;
+    width: 20px;
+    height: 1px;
+    background: var(--ink);
+    transition: all 0.25s;
   }
 
-  @media (max-width: 700px) {
-    .nav-toggle {
-      display: flex;
-    }
+  @media (max-width: 768px) {
+    .nav-toggle { display: flex; }
 
     .nav {
       display: none;
       position: absolute;
-      top: 4rem;
+      top: 3.75rem;
       left: 0;
       right: 0;
       flex-direction: column;
       align-items: flex-start;
       gap: 0;
-      background: var(--color-bg);
-      border-bottom: 1px solid var(--color-border);
-      padding: 0.5rem 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
     }
 
-    .nav.nav-open {
-      display: flex;
-    }
+    .nav.nav-open { display: flex; }
 
     .nav a {
       width: 100%;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem !important;
+      padding: 0.85rem var(--pad-x);
+      font-size: 0.85rem !important;
+      text-transform: none !important;
+      letter-spacing: 0.02em !important;
+      border-top: 1px solid var(--line-soft);
     }
 
-    .nav-cta {
-      border-radius: 0 !important;
-      background: none !important;
-      color: var(--color-primary) !important;
-      border-top: 1px solid var(--color-border);
-      margin-top: 0.25rem;
+    .nav-contact {
+      border: none !important;
+      padding: 0.85rem var(--pad-x) !important;
     }
   }
 </style>

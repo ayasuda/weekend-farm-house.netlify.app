@@ -1,121 +1,220 @@
 ---
 const values = [
   {
-    icon: '🌿',
+    num: '01',
     title: '広々とした居住空間',
-    body: '都内では手が届かない広さの土地。家族4人がゆったり暮らせる平屋と、のびのびとした庭。',
+    body: '都内では手の届かない広さの土地。家族4人がゆったり暮らせる平屋と、のびのびとした庭。',
   },
   {
-    icon: '🥕',
-    title: '本格的な家庭菜園',
-    body: '家庭菜園より一歩進んだ農業体験。専門の農業指導員がサポートするので、初めての方でも安心。',
+    num: '02',
+    title: '本格的な家庭菜園体験',
+    body: '農業経験ゼロでも始められる。農業指導員が常駐し、季節の作付けから収穫まで寄り添う。',
   },
   {
-    icon: '🏠',
+    num: '03',
     title: 'もうひとつの生活拠点',
-    body: '完全移住ではない、ゆるやかな二拠点生活。都内の仕事も続けながら、週末だけ別の暮らしを持つ。',
+    body: '完全移住ではない、ゆるやかな二拠点生活。都内の仕事を続けながら、週末だけ別の暮らしを持つ。',
   },
   {
-    icon: '👨‍👩‍👧‍👦',
-    title: '子どもに自然体験を',
-    body: '土に触れ、種を植え、収穫の喜びを知る。季節の変化を身体で感じる体験を、子どもに。',
+    num: '04',
+    title: '子どもに土と季節を',
+    body: '種を植え、水をやり、収穫する。季節の変化を身体で感じる体験を、子どもの日常に。',
   },
   {
-    icon: '🔥',
-    title: '庭でバーベキュー',
-    body: '各区画の庭にバーベキュースペースを設ける想定。週末の夕食を、庭の外で。',
+    num: '05',
+    title: '庭でBBQ、外で食事',
+    body: '各区画の庭にバーベキュースペースを設ける想定。週末の夕食を、庭の空の下で。',
   },
   {
-    icon: '🚃',
-    title: '電車で50分の距離感',
-    body: '都内から電車で50分以内。たとえば八王子周辺。通いやすく、気軽に行き来できる距離感。',
+    num: '06',
+    title: '電車50分の距離感',
+    body: '都内から電車で50分以内。たとえば八王子周辺。通いやすく、気軽に行き来できる距離感を重視する。',
   },
+] as const;
+
+const targets = [
+  '20代後半〜50代前半の核家族',
+  '都内在住で週末だけ離れたい家族',
+  '子どもに自然・農業体験をさせたい親',
+  '完全移住は考えていないが、もう一拠点欲しい方',
+  '平日は都市、週末は郊外という生活に共感する方',
 ] as const;
 ---
 
 <section id="concept" class="concept">
   <div class="container">
-    <p class="section-label">Concept</p>
-    <h2 class="section-title">暮らしのコンセプト</h2>
-
-    <div class="concept-lead section-body">
-      <p>
+    <div class="concept-header">
+      <span class="section-label">Lifestyle Concept</span>
+      <h2 class="section-title">暮らしのコンセプト</h2>
+      <p class="concept-lead">
         都市での暮らしを手放さずに、週末だけもうひとつの生活を持つ。
         完全移住でも別荘でもない、新しいライフスタイルの提案です。
       </p>
-      <p>
-        対象は、都内で働く20代後半〜50代前半の核家族。
-        子どもに自然体験をさせたい、でも引越しまでは考えていない——そんな家族に向けた企画です。
-      </p>
+    </div>
+
+    <div class="concept-photo">
+      <img
+        src="/garden-rows.png"
+        alt="菜園の畝 — 家庭菜園のイメージ"
+        class="concept-photo-img"
+      />
     </div>
 
     <div class="values-grid">
       {values.map((v) => (
-        <div class="value-card">
-          <div class="value-icon">{v.icon}</div>
+        <div class="value-item">
+          <span class="value-num">{v.num}</span>
           <h3 class="value-title">{v.title}</h3>
           <p class="value-body">{v.body}</p>
         </div>
       ))}
+    </div>
+
+    <div class="targets-block">
+      <span class="section-label" style="margin-bottom: 1.25rem;">想定するユーザー</span>
+      <ul class="targets-list">
+        {targets.map((t) => (
+          <li>{t}</li>
+        ))}
+      </ul>
     </div>
   </div>
 </section>
 
 <style>
   .concept {
-    background-color: var(--color-bg);
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .concept-header {
+    margin-bottom: 3rem;
+  }
+
+  .concept-photo {
+    margin-bottom: 3rem;
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+
+  .concept-photo-img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  @media (max-width: 600px) {
+    .concept-photo-img { height: 200px; }
   }
 
   .concept-lead {
-    margin-bottom: 3rem;
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: var(--ink-soft);
+    max-width: 580px;
   }
 
   .values-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: 0;
+    border: 1px solid var(--line);
+    margin-bottom: 3rem;
   }
 
-  .value-card {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 0.75rem;
-    padding: 1.75rem;
-    transition: box-shadow 0.2s;
+  .value-item {
+    padding: 2rem;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--bg-white);
   }
 
-  .value-card:hover {
-    box-shadow: 0 4px 16px rgba(74, 103, 65, 0.1);
-  }
+  .value-item:nth-child(3n) { border-right: none; }
+  .value-item:nth-child(4),
+  .value-item:nth-child(5),
+  .value-item:nth-child(6) { border-bottom: none; }
 
-  .value-icon {
-    font-size: 1.75rem;
-    margin-bottom: 0.75rem;
+  .value-num {
+    display: block;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    color: var(--ink-faint);
+    font-family: var(--mono);
+    margin-bottom: 1rem;
   }
 
   .value-title {
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 600;
-    color: var(--color-primary-dark);
+    color: var(--ink);
     margin-bottom: 0.6rem;
     line-height: 1.4;
   }
 
   .value-body {
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: var(--ink-soft);
+  }
+
+  .targets-block {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border: 1px solid var(--line);
+    background: var(--bg-white);
+  }
+
+  .targets-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0;
+  }
+
+  .targets-list li {
     font-size: 0.875rem;
-    line-height: 1.8;
-    color: var(--color-text-muted);
+    color: var(--ink-soft);
+    padding: 0.45rem 0;
+    width: 50%;
+    padding-right: 1rem;
+    border-bottom: 1px solid var(--line-soft);
+    position: relative;
+    padding-left: 1rem;
+  }
+
+  .targets-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 4px;
+    height: 1px;
+    background: var(--ink-faint);
   }
 
   @media (max-width: 900px) {
     .values-grid {
       grid-template-columns: repeat(2, 1fr);
     }
+
+    .value-item:nth-child(3n) { border-right: 1px solid var(--line); }
+    .value-item:nth-child(2n) { border-right: none; }
+    .value-item:nth-child(4),
+    .value-item:nth-child(5),
+    .value-item:nth-child(6) { border-bottom: 1px solid var(--line); }
+    .value-item:nth-child(5),
+    .value-item:nth-child(6) { border-bottom: none; }
   }
 
-  @media (max-width: 550px) {
-    .values-grid {
-      grid-template-columns: 1fr;
-    }
+  @media (max-width: 600px) {
+    .values-grid { grid-template-columns: 1fr; }
+
+    .value-item { border-right: none; }
+    .value-item:last-child { border-bottom: none; }
+
+    .targets-list li { width: 100%; }
   }
 </style>

@@ -1,34 +1,40 @@
 ---
 const currentYear = new Date().getFullYear();
+
+const links = [
+  ['About', '#about'],
+  ['Concept', '#concept'],
+  ['Plan', '#specs'],
+  ['Support', '#services'],
+  ['Location', '#location'],
+  ['Pricing', '#pricing'],
+  ['FAQ', '#faq'],
+  ['Contact', '#contact'],
+] as const;
 ---
 
 <footer class="site-footer">
-  <div class="container footer-inner">
+  <div class="footer-main container">
     <div class="footer-brand">
-      <p class="footer-logo">週末セカンドハウス構想</p>
+      <p class="footer-wordmark">WEEKEND FARM HOUSE</p>
       <p class="footer-tagline">都内で暮らしながら、週末だけ土に触れる。</p>
+      <p class="footer-concept-status">Concept Project — 需要観測中</p>
     </div>
 
-    <div class="footer-nav">
-      <a href="#about">この企画について</a>
-      <a href="#concept">暮らしのコンセプト</a>
-      <a href="#specs">区画・建物</a>
-      <a href="#services">管理サービス</a>
-      <a href="#location">立地イメージ</a>
-      <a href="#pricing">価格イメージ</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact">感想フォーム</a>
-    </div>
+    <nav class="footer-nav" aria-label="フッターナビゲーション">
+      {links.map(([label, href]) => (
+        <a href={href}>{label}</a>
+      ))}
+    </nav>
   </div>
 
   <div class="footer-bottom">
-    <div class="container">
+    <div class="container footer-bottom-inner">
       <p class="footer-disclaimer">
-        このページは、実在する分譲地の販売広告ではありません。
-        すべての情報は構想段階の仮説です。
+        このページは、実在する分譲地の販売広告ではありません。すべての情報は構想段階の仮説です。
       </p>
       <p class="footer-copy">
-        &copy; {currentYear} 週末セカンドハウス構想 — コンセプトサイト
+        &copy; {currentYear} Weekend Farm House — Concept Site
       </p>
     </div>
   </div>
@@ -36,69 +42,98 @@ const currentYear = new Date().getFullYear();
 
 <style>
   .site-footer {
-    background-color: var(--color-primary-dark);
-    color: rgba(255, 255, 255, 0.7);
-    padding-top: 3rem;
+    background: var(--bg-dark);
+    color: rgba(255,255,255,0.5);
   }
 
-  .footer-inner {
+  .footer-main {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    padding-bottom: 2.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    gap: 4rem;
+    padding-top: 3.5rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
 
-  .footer-logo {
-    font-family: var(--font-serif);
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 0.5rem;
+  .footer-wordmark {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: rgba(255,255,255,0.8);
+    font-family: var(--mono);
+    margin-bottom: 0.6rem;
   }
 
   .footer-tagline {
     font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 0.4rem;
+  }
+
+  .footer-concept-status {
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    font-family: var(--mono);
   }
 
   .footer-nav {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem 1.5rem;
+    gap: 0.35rem 2rem;
     align-content: flex-start;
+    padding-top: 0.25rem;
   }
 
   .footer-nav a {
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    font-family: var(--mono);
+    transition: color 0.15s;
     text-decoration: none;
-    transition: color 0.2s;
   }
 
   .footer-nav a:hover {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255,255,255,0.7);
   }
 
   .footer-bottom {
     padding: 1.25rem 0;
-    text-align: center;
+  }
+
+  .footer-bottom-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
   }
 
   .footer-disclaimer {
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.45);
-    margin-bottom: 0.35rem;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.25);
+    line-height: 1.5;
   }
 
   .footer-copy {
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.35);
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.2);
+    white-space: nowrap;
+    font-family: var(--mono);
   }
 
-  @media (max-width: 700px) {
-    .footer-inner {
+  @media (max-width: 640px) {
+    .footer-main {
       grid-template-columns: 1fr;
-      gap: 1.5rem;
+      gap: 2rem;
+    }
+
+    .footer-bottom-inner {
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 </style>
